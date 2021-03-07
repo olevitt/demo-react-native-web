@@ -14,14 +14,9 @@ import {
   View,
   Text,
   StatusBar,
-  Vibration,
-  Linking,
 } from 'react-native';
 
 const App: () => React$Node = () => {
-  Vibration.vibrate();
-  Linking.openURL('https://google.fr');
-
   return (
     <>
       <StatusBar barStyle="dark-content" />
