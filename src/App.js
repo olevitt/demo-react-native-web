@@ -13,23 +13,15 @@ import {
   StyleSheet,
   Text,
   View,
+  Button,
+  Share,
 } from 'react-native';
 
-const Section = ({children, title})=> {
+const Section = ({children, title}) => {
   return (
     <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-        ]}>
-        {children}
-      </Text>
+      <Text style={[styles.sectionTitle]}>{title}</Text>
+      <Text style={[styles.sectionDescription]}>{children}</Text>
     </View>
   );
 };
@@ -37,21 +29,23 @@ const Section = ({children, title})=> {
 const App = () => {
   return (
     <SafeAreaView>
-      <StatusBar barStyle='light-content' />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        >
+      <StatusBar barStyle="light-content" />
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View>
+          <Button
+            onPress={() => {
+              Share.share({message: 'Hello world'});
+            }}
+            title="Partager"
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+          />
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.js</Text> to change this
             screen and then come back to see your edits.
           </Section>
-          <Section title="See Your Changes" >
-            Hello world!
-          </Section>
-          <Section title="Debug">
-            Hello world!
-          </Section>
+          <Section title="See Your Changes">Hello world!</Section>
+          <Section title="Debug">Hello world!</Section>
           <Section title="Learn More">
             Read the docs to discover what to do next:
           </Section>
