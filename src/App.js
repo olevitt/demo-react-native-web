@@ -26,11 +26,30 @@ const Section = ({children, title}) => {
   );
 };
 
+const MonComposant = () => {
+  const [score, setScore] = React.useState(42);
+
+  console.log('Rafraichissement de moncomposant avant');
+  React.useEffect(() => {
+    console.log('Affichage du composant');
+  }, []);
+  console.log('Rafraichissement de moncomposant après');
+  return (
+    <Button
+      onPress={() => setScore(score + 1)}
+      title={score}
+      color="#841584"
+      accessibilityLabel="Learn more about this purple button"
+    />
+  );
+};
+
 const App = () => {
   return (
     <SafeAreaView>
       <StatusBar barStyle="light-content" />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <MonComposant />
         <View>
           <Button
             onPress={() => {
